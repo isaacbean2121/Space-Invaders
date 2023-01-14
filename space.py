@@ -91,7 +91,6 @@ class Ship:
         return self.ship_img.get_height()
 
 
-
 class Player(Ship):
     def __init__(self, x, y, health=100):
         super().__init__(x, y, health)
@@ -122,6 +121,7 @@ class Player(Ship):
         pygame.draw.rect(window, (255,0,0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width(), 10))
         pygame.draw.rect(window, (0,255,0), (self.x, self.y + self.ship_img.get_height() + 10, self.ship_img.get_width() * (self.health/self.max_health), 10))
 
+        
 class Enemy(Ship):
     COLOR_MAP = {
                     "red": (RED_SPACE_SHIP, RED_LASER),
@@ -174,7 +174,6 @@ def main():
     clock = pygame.time.Clock()
 
     
-
     def redraw_window():
         WIN.blit(BG, (0,0))
 
@@ -195,9 +194,7 @@ def main():
             lost_label = lost_font.render("You died.", 1, (255,255,255))
             WIN.blit(lost_label, (WIDTH/2 - lost_label.get_width()/2, 350))
 
-        
-
-        
+              
         pygame.display.update()
 
     while run:
@@ -216,9 +213,7 @@ def main():
             else: 
                 continue
 
-                
-
-        
+                       
         if len(enemies) == 0:
             level += 1
             wave_length += 5
@@ -227,8 +222,6 @@ def main():
                 enemies.append(enemy)
 
        
-
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
@@ -284,4 +277,3 @@ def main_menu():
     pygame.quit()
 
 main_menu()
-
